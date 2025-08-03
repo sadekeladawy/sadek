@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Canvas | Cooking Made Simple</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f7;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-image {
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .recipe-card {
+            transition: all 0.3s ease;
+        }
+        
+        .ingredient-list li::before {
+            content: "•";
+            color: #e67e22;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-stack {
+                flex-direction: column;
+            }
+            
+            .hero-content {
+                padding-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://placehold.co/50x50" alt="Culinary Canvas logo - chef's hat with paintbrush crossing it" class="h-12 mr-3">
+                    <span class="font-bold text-xl text-orange-600">Culinary Canvas</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-orange-600">Home</a>
+                    <a href="#recipes" class="text-gray-700 hover:text-orange-600">Recipes</a>
+                    <a href="#techniques" class="text-gray-700 hover:text-orange-600">Techniques</a>
+                    <a href="#about" class="text-gray-700 hover:text-orange-600">About</a>
+                </div>
+                <button class="md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-16">
+        <div class="container mx-auto px-6 mobile-stack">
+            <div class="flex-1 hero-content">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Transform Your <span class="text-orange-600">Cooking</span> Into Art</h1>
+                <p class="text-xl mb-8 text-gray-600">Discover simple recipes, master techniques, and find inspiration to create culinary masterpieces in your own kitchen.</p>
+                <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Explore Recipes
+                </button>
+            </div>
+            <div class="flex-1 mt-10 md:mt-0 hero-image">
+                <img src="https://placehold.co/800x500" alt="Beautifully plated dish with colorful vegetables, garnishes and artistic sauce drizzle on white plate" class="rounded-lg shadow-xl w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Recipes -->
+    <section id="recipes" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Featured Recipes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hand-picked recipes for every skill level and occasion</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Recipe Card 1 -->
+                <div class="recipe-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400" alt="Pan-seared salmon with crispy skin served over asparagus and lemon wedges" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Perfect Pan-Seared Salmon</h3>
+                            <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">Easy</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Crispy skin, flaky flesh - restaurant quality salmon in under 15 minutes.</p>
+                        
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 25 min</span>
+                            <span><svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg> 4 servings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recipe Card 2 -->
+                <div class="recipe-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400" alt="Fresh pasta with rich meat ragu sauce topped with grated parmesan cheese" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Authentic Bolognese</h3>
+                            <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">Medium</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Slow-cooked meat sauce with layers of flavor developed over hours.</p>
+                        
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 3 hours</span>
+                            <span><svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg> 6 servings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recipe Card 3 -->
+                <div class="recipe-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://placehold.co/600x400" alt="Fluffy pancakes stacked high with syrup drizzle and fresh berries on top" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Ultimate Pancakes</h3>
+                            <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">Easy</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Light, fluffy pancakes with golden edges - perfect weekend breakfast.</p>
+                        
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 20 min</span>
+                            <span><svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg> 8 pancakes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    View All Recipes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cooking Techniques Section -->
+    <section id="techniques" class="py-16 bg-orange-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Master Essential Techniques</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Fundamental skills every home cook should know</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-colsBecoming a better cook isn't just about following recipes—it's about mastering the fundamental techniques that form the foundation of all great cooking. These skills will serve you for a lifetime in the kitchen.
+
+-2 gap-8">
+                <!-- Technique Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md flex items-start">
+                    <div class="mr-6 text-orange-600">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Knife Skills</h3>
+                        <p class="text-gray-600 mb-4">Learn proper grip, knife selection, and essential cuts for efficiency and safety.</p>
+                        <button class="text-orange-600 font-semibold flex items-center">
+                            Watch Tutorial 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Technique Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md flex items-start">
+                    <div class="mr-6 text-orange-600">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Sauce Making</h3>
+                        <p class="text-gray-600 mb-4">From roux-based sauces to emulsions, master the mother sauces.</p>
+                        <button class="text-orange-600 font-semibold flex items-center">
+                            Watch Tutorial 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Technique Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md flex items-start">
+                    <div class="mr-6 text-orange-600">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Tempering Chocolate</h3>
+                        <p class="text-gray-600 mb-4">The secret to shiny, snappy chocolate that melts perfectly.</p>
+                        <button class="text-orange-600 font-semibold flex items-center">
+                            Watch Tutorial 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Technique Card 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md flex items-start">
+                    <div class="mr-6 text-orange-600">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Heat Control</h3>
+                        <p class="text-gray-600 mb-4">Understanding stovetop zones, oven temperatures, and carryover cooking.</p>
+                        <button class="text-orange-600 font-semibold flex items-center">
+                            Watch Tutorial 
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe of the Week -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/800x600" alt="Fresh homemade pasta with rich meat sauce, garnished with fresh basil leaves" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <div class="mb-3 text-orange-600 font-bold">Recipe of the Week</div>
+                        <h2 class="text-3xl font-bold mb-6">Homemade Pasta from Scratch</h2>
+                        <p class="text-gray-600 mb-8">Making pasta dough by hand is easier than you think and requires just three ingredients. The result is tender, flavorful pasta far superior to anything from a box.</p>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-4">Ingredients</h3>
+                            <ul class="ingredient-list space-y-2">
+                                <li>400g tipo 00 flour (plus extra for dusting)</li>
+                                <li>4 large eggs</li>
+                                <li>1 tsp fine sea salt</li>
+                                <li>1 tbsp olive oil (optional)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Hands-on: 30 min</span>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Total: 1 hour</span>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Difficulty: Medium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-orange-600 text-white">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold mb-6">Join Our Culinary Community</h2>
+            <p class="mb-8">Get weekly recipes, techniques, and cooking inspiration delivered straight to your inbox.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-full focus:outline-none text-gray-800">
+                <button class="bg-white text-orange-600 hover:bg-gray-100 font-bold px-6 py-3 rounded-full transition duration-300">
+                    Subscribe
+                </button>
+            </div>
+            <p class="text-orange-200 text-sm mt-4">We never share your information.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Meet Our Chef</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Bringing restaurant-quality techniques to your home kitchen</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 md:mr-12">
+                    <img src="https://placehold.co/500x500" alt="Professional chef in white coat smiling while holding rolling pin and fresh pasta" class="rounded-full w-64 h-64 object-cover border-4 border-orange-200 shadow-lg mx-auto">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-xl font-bold mb-4">Chef Marcus Tremaine</h3>
+                    <p class="text-gray-600 mb-4">With over 15 years of experience in Michelin-starred restaurants across Europe and Asia, Chef Marcus is passionate about demystifying professional techniques for home cooks.</p>
+                    <p class="text-gray-600 mb-6">"Great cooking isn't about fancy ingredients or expensive equipment—it's about understanding fundamental techniques and applying them with care and attention. Whether you're making scrambled eggs or soufflé, the same principles apply."</p>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#" class="text-orange-600 hover:text-orange-800">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-orange-600 hover:text-orange-800">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-orange-600 hover:text-orange-800">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-orange-600 hover:text-orange-800">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Culinary Canvas</h3>
+                    <p class="text-gray-400">Where cooking transforms into art and every meal becomes a masterpiece.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">All Recipes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">Cooking Classes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">Equipment Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">Pantry Staples</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">Conversion Charts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">Seasonal Produce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">Knife Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500">Food Safety</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">hello@culinarycanvas.com</li>
+                        <li class="text-gray-400">+1 (555) 123-4567</li>
+                        <li class="text-gray-400">123 Chef's Way, Kitchenville</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Culinary Canvas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('button[class*="md:hidden"]');
+            const navLinks = document.querySelector('.hidden.md\\:flex');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('flex');
+                navLinks.classList.toggle('flex-col');
+                navLinks.classList.toggle('absolute');
+                navLinks.classList.toggle('top-16');
+                navLinks.classList.toggle('right-6');
+                navLinks.classList.toggle('bg-white');
+                navLinks.classList.toggle('p-4');
+                navLinks.classList.toggle('shadow-lg');
+                navLinks.classList.toggle('rounded-lg');
+                navLinks.classList.toggle('space-y-4');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Recipe card animation triggers
+            const recipeCards = document.querySelectorAll('.recipe-card');
+            recipeCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
